@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro De Usuario</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <form id="Formulario" method="post" action="insere.php">
+            <label>CPF:</label><br>
+            <input name="cpf" required><br>
+            <label>Usuário:</label><br>
+            <input name="usuario" required><br>
+            <label>Email:</label><br>
+            <input name="email" type="email" required><br>
+            <label>Senha:</label><br>
+            <input name="senha" type="password" required><br>
+            <label>Telefone:</label><br>
+            <input name="telefone"><br>
+            <label>Nascimento:</label><br>
+            <input name="nascimento" type="date"><br><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#Formulario").on("submit", function (e) {
+                e.preventDefault(); // impede o reload da página
+
+                $.ajax({
+                    url: "insere.php",
+                    type: "POST",
+                    data: $(this).serialize(), // envia todos os campos do form
+                    success: function (response) {
+                        console.log("Resposta do PHP:", response);
+                        alert(response); // mostra a resposta do PHP
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Erro AJAX: " + xhr.status + " - " + error);
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

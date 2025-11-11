@@ -1,0 +1,38 @@
+services:
+  db:
+    image: mariadb:latest
+    container_name: db_saas
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_saas
+    ports:
+      - "3306:3306" # Disponível para MySQL Workbench e conexões externas
+    volumes:
+      - ./db_data:/var/lib/mysql # Pasta local para guardar os dados
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php_app
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src/:/var/www/html
+      - ./src/uploads/:/var/www/html/uploads   # <- aqui vai a pasta uploads
+    depends_on:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "8081:80" # Interface web phpMyAdmin
+    depends_on:
+      - db
