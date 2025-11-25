@@ -16,13 +16,12 @@ $telefone = $_POST['telefone']  ;
 $nascimento = $_POST['nascimento'] ;
 
 if ($cpf === '' || $usuario === '' || $email === '') {
-    die("⚠️ Campos obrigatórios não enviados. Dados recebidos: " . json_encode($_POST));
+    die("Campos obrigatórios não enviados. Dados recebidos: " . json_encode($_POST));
 }
 
-// Se quiser manter cd_cpf como INT:
 $cpf = preg_replace('/\D/', '', $cpf); // remove . e -
 
-$stmt = $conn->prepare("INSERT INTO usuario (cd_cpf, nm_usuario, ds_email, ds_senha, ds_telefone, dt_nascimento)
+$stmt = $conn->prepare("INSERT INTO USUARIO (cd_cpf, nm_usuario, ds_email, ds_senha, ds_telefone, dt_nascimento)
                         VALUES (?, ?, ?, ?, ?, ?)");
 
 if (!$stmt) {
@@ -32,9 +31,9 @@ if (!$stmt) {
 $stmt->bind_param("isssss", $cpf, $usuario, $email, $senha, $telefone, $nascimento);
 
 if ($stmt->execute()) {
-    echo "✅ Cadastro inserido com sucesso!";
+    echo "Cadastro inserido com sucesso!";
 } else {
-    echo "❌ Erro MySQL: " . $stmt->error;
+    echo "Erro MySQL: " . $stmt->error;
 }
 
 $stmt->close();

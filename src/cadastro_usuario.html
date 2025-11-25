@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro De Usuario</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <form id="Formulario" method="post" action="insere.php">
             <label>CPF:</label><br>
             <input name="cpf" required><br>
@@ -25,14 +24,15 @@
             <button type="submit">Enviar</button>
         </form>
     </div>
-
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#Formulario").on("submit", function (e) {
                 e.preventDefault(); // impede o reload da página
 
                 $.ajax({
-                    url: "insere.php",
+                    url: "insere_usuario.php",
                     type: "POST",
                     data: $(this).serialize(), // envia todos os campos do form
                     success: function (response) {

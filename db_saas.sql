@@ -21,7 +21,7 @@ CREATE TABLE RUA (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE LOJA (
-    cd_cnpj INT PRIMARY KEY,
+    cd_cnpj VARCHAR(18) PRIMARY KEY,
     ds_senha VARCHAR(100) NOT NULL,
     nm_loja VARCHAR(100) NOT NULL,
     ds_telefone VARCHAR(20),
@@ -46,7 +46,7 @@ CREATE TABLE PRODUTO (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE USUARIO (
-    cd_cpf INT PRIMARY KEY,
+    cd_cpf VARCHAR(14) PRIMARY KEY,
     nm_usuario VARCHAR(100) NOT NULL,
     ds_email VARCHAR(100),
     ds_senha VARCHAR(100) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE USUARIO (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE LOJA_PRODUTO (
-    cd_cnpj INT,
+    cd_cnpj VARCHAR(18),
     cd_produto INT,
     PRIMARY KEY (cd_cnpj, cd_produto),
     FOREIGN KEY (cd_cnpj) REFERENCES LOJA(cd_cnpj),
@@ -63,7 +63,7 @@ CREATE TABLE LOJA_PRODUTO (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE COMPRA (
-    cd_cpf INT,
+    cd_cpf VARCHAR(14),
     cd_produto INT,
     dt_compra DATE,
     quantidade INT DEFAULT 1,

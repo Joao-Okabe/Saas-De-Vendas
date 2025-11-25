@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastre sua loja</title>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deméter - Cadastro</title>
+    <link rel="stylesheet" href="css/cadastro-loja.css">
 </head>
 <body>
 
-    <h1>CADASTRO</h1>
-    
-    <div id="form_cadastro">
-        <form id="formLoja" method="POST">
-            
-            <label for="nome_loja">Nome do comércio:</label>
-            <input id="nome_loja" name="nome_loja" type="text" required>
-            <br>
-
-            <label for="senha_loja">Senha:</label>
-            <input id="senha_loja" name="senha_loja" type="password" required>
-            <br>
-
-            <label for="cod_cnpj">CNPJ:</label>
-            <input id="cod_cnpj" name="cod_cnpj" type="text" required>
-            <br>
-
-            <label for="telefone_loja">Telefone:</label>
-            <input id="telefone_loja" name="telefone_loja" type="text" required>
-            <br>
-
-            <label for="email_loja">E-mail:</label>
-            <input id="email_loja" name="email_loja" type="email" required>
-            <br>
-
-            <label for="estado">Estado:</label>
-            <input id="estado" name="estado" type="text" maxlength="2" required>
-            <br>
-
-            <label for="cidade">Cidade:</label>
-            <input id="cidade" name="cidade" type="text" required>
-            <br>
-
-            <label for="rua">Rua:</label>
-            <input id="rua" name="rua" type="text" required>
-            <br>
-
-            <label for="categoria">Categoria do comércio:</label>
-            <input id="categoria" name="categoria" type="text" placeholder="Ex: Hamburgueria, Pastelaria..." required>
-            <br>
-
-            <label for="formato">Formato do comércio:</label>
-            <input id="formato" name="formato" type="text" placeholder="Ex: Loja física, Online..." required>
-            <br>
-
-            <button type="submit" class="salvar">ENVIAR</button>
-        </form>
+<div class="container">
+    <div class="left">
+        <h1 >Deméter</h1>
+        <p>Ofereça, venda, agrade!</p>
+        <img class="plate-img" src="plate.png" alt="Prato"/>
     </div>
 
-    <script src="jquery-3.7.1.min.js"></script>
+    <div class="right">
+        <h2>Cadastre-se</h2>
+        <h3>como loja</h3>
+        <form id="formLoja" method="POST">
+            <input id="nome_loja" name="nome_loja" type="text" placeholder="Nome da Loja" required>
+            <input id="senha_loja" name="senha_loja" type="password" placeholder="Senha" required>
+            <input id="cod_cnpj" name="cod_cnpj" type="text" placeholder="CNPJ" required>
+
+            <div class="row">
+                <input id="telefone_loja" name="telefone_loja" placeholder="Número de Telefone" type="text" required>
+                <input id="email_loja" name="email_loja" type="email" placeholder="Email" required>
+            </div>
+
+            <div class="row">
+                <input id="estado" name="estado" type="text" maxlength="2" placeholder="Estado" required>
+                <input id="cidade" name="cidade" type="text" placeholder="Cidade" required>
+            </div>
+
+            <input id="rua" name="rua" type="text" placeholder="Rua" required>
+
+            <div class="row">
+                <input id="categoria" name="categoria" type="text" placeholder="Ex: Hamburgueria, Pastelaria..." required>
+                <input id="formato" name="formato" type="text" placeholder="Ex: Loja física, Online..." required>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" /> Aceito os termos de <a href="">política e privacidade</a>.
+            </div>
+            <div class="checkbox-row">
+                <input type="checkbox" /> Gostaria de receber relatórios.
+            </div>
+
+            <div class="row">
+                <div class="login">Já possui cadastro? <a>Clique aqui para realizar login!</a></div>
+                <button type="submit" class="salvar">ENVIAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $('#formLoja').submit(function(e) {
             e.preventDefault();
-
             $.ajax({
-                url: 'insere.php',
+                url: 'insere_loja.php',
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function(resposta) {
