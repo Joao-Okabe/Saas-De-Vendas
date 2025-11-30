@@ -1,36 +1,50 @@
 
-    .container{
-        width: 80vw;
-        height: 80vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;  /* centraliza horizontal e vertical */
-        
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.container{
+    width: 80vw;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;  /* centraliza horizontal e vertical */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
 
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-        border-top-left-radius: 30px;
-        border-bottom-right-radius: 30px;
-    }
+.left {
+    width: 50%;
+    height: 100%;
+    padding: 60px;
+    background: #f7b733;
+    box-sizing: border-box;
+    position: relative;
+    color: white;
+    border-top-left-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-    .left {
-        width: 50%;
-        height: 100%;
-        background: #f7b733;
-        padding: 40px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: white;
-        position: relative;
-        border-top-left-radius: 30px;
-    } 
+.left h2, 
+.left h3 {
+    z-index: 2; /* manter o texto por cima */
+    position: relative;
+}
+
+.plate-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: right center;
+    clip-path: inset(0 25% 0 0);
+    display: block;
+    pointer-events: none;
+}
 
     .right {
         width: 50%;
@@ -56,8 +70,8 @@
 
     .left img {
         width: 80%;
-        margin-top: 40px;
-        border-radius: 20px;
+        bottom: 0;
+        position: relative;
     }
 
     .column {
@@ -129,10 +143,4 @@
         cursor: pointer;
         width: 200px;
         margin-left: auto;
-    }
-
-    .plate-img{
-        width: 100%;
-        clip-path: inset(0 0 20% 20%); 
-        border-radius: 20px;
     }

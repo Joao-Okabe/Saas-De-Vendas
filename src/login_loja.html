@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+
+    <div>
+      <form id="formLoja" method="POST">
+        <label for="cnpj_loja">CNPJ do comércio:</label>
+        <input id="cnpj_loja" name="cnpj_loja" type="text" required />
+        <br />
+
+        <label for="email_loja">E-mail:</label>
+        <input id="email_loja" name="email_loja" type="email" required />
+        <br />
+
+        <label for="senha_loja">Senha:</label>
+        <input id="senha_loja" name="senha_loja" type="password" required />
+
+        <button type="submit">LOGIN</button>
+      </form>
+    </div>
+
+    <div id="msg" style="color: red; margin-top: 10px"></div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+      $("#formLoja").submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+          url: "login_loja.php",
+          type: "POST",
+          data: $(this).serialize(),
+          success: function (resposta) {
+            resposta = resposta.trim();
+
+            if (resposta === "OK") {
+              window.location.href = "main.html";
+            } else {
+              $("#msg").html(resposta);
+            }
+          },
+          error: function () {
+            alert("Erro ao se comunicar com o servidor.");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

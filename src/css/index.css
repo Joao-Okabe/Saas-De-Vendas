@@ -3,24 +3,75 @@
     margin: 0;
 }
 
-body{
-    background-color: white;
-    padding: 0px;
+nav {
+    background: #0E8A1F;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
 
-header{
-    background-color: #167421;
-    min-height: 15vh;
-    width: auto;
-    padding-left: 10px;
-    color: white;
+.logo {
     display: flex;
     align-items: center;
+    gap: 10px;
+    font-size: 32px;
+    font-weight: 700;
 }
 
-a{
+.menu {
+    display: flex;
+    gap: 40px;
+    font-size: 18px;
+}
+
+.menu a {
     text-decoration: none;
     color: white;
+}
+
+.btn-login {
+    border: 2px solid white;
+    padding: 10px 28px;
+    border-radius: 14px;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+    /* HERO SECTION */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 60px;
+    background: url('https://i.imgur.com/AWb9dY3.png'); /* padrão de bolinhas (placeholder) */
+    background-size: 280px;
+    background-repeat: repeat;
+}
+
+.hero-text {
+    width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 54px;
+    color: #F2B325;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 550px;
+}
+
+.hero img {
+    width: 500px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 footer{
@@ -36,7 +87,7 @@ footer{
 
 .second-section{
     width: 100%;
-    height: 30vh;
+    height: 100vh;
     background-color: #4d4c4b;
     display: flex;
     justify-content: center;
@@ -45,11 +96,8 @@ footer{
 
 .third-section{
     width: 100%;
-    height: 40vh;
+    height: 100vh;
     background-color: #cfbf61;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .box-1{

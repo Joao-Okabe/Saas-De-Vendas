@@ -121,3 +121,23 @@
   font-weight: 900;
   font-style: italic;
 }
+
+.f-s{
+  font-size: smaller;
+}
+
+.f-sm{
+  font-size: small;
+}
+
+.f-m{
+  font-size: medium;
+}
+
+.f-mx{
+  font-size: large;
+}
+
+.f-x{
+  font-size: larger;
+}
