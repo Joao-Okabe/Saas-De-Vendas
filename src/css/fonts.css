@@ -122,22 +122,30 @@
   font-style: italic;
 }
 
-.f-s{
+.t-white{
+  color: white;
+}
+
+.t-justified{
+  text-align: justify;
+}
+
+.fs-s{
   font-size: smaller;
 }
 
-.f-sm{
+.fs-sm{
   font-size: small;
 }
 
-.f-m{
+.fs-m{
   font-size: medium;
 }
 
-.f-mx{
+.fs-mx{
   font-size: large;
 }
 
-.f-x{
+.fs-x{
   font-size: larger;
 }
