@@ -2,14 +2,14 @@
  
 @font-face {
     font-family: 'Agrandir';
-    src: url('/src/fonts/Agrandir-Font-Family/Agrandir-Regular.otf') format('truetype');
+    src: url('fonts/Agrandir-Font-Family/Agrandir-Regular.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Agrandir';
-    src: url('/src/fonts/Agrandir-Font-Family/Agrandir-TextBold.otf') format('truetype');
+    src: url('fonts/Agrandir-Font-Family/Agrandir-TextBold.otf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
@@ -124,6 +124,13 @@
 
 .t-white{
   color: white;
+}
+
+.a-white{
+  color: white;
+  text-decoration: underline;
+  font-family: "Agrandir", sans-serif;
+  font-weight: 300;
 }
 
 .t-justified{

@@ -3,25 +3,39 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deméter - Cadastro</title>
-    <link rel="stylesheet" href="css/cadastro-loja.css">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/cadastro-loja.css">
 </head>
 <body>
 
 <div class="container">
     <div class="left">
-        <h2>Deméter</h2>
-        <h3>Ofereça, venda e agrade!</h3>
-        <img class="plate-img" src="plate.png" alt="Prato"/>
+        <div class="logo-holder">
+            <h1 class="agrandir-medium">Deméter</h1>
+            <img src="../images/brightlogo.png" class="logo-photo"/>
+        </div>
+        <div class="slogan-contato t-justified">
+            <h3 class="agrandir-bold">Ofereça, venda e agrade!<br>De qualquer lugar.</h3>
+            <a class="a-white" href="">Está enfrentando problemas? Contate nosso suporte!</a>
+        </div>
     </div>
 
     <div class="right">
-        <h2>Cadastre-se</h2>
-        <h3>como loja</h3>
+        <div class="form-title">
+            <h1 class="agrandir-medium">Cadastre-se</h1>
+            <h3>como loja</h3>
+        </div>
         <form id="formLoja" method="POST">
-            <input id="nome_loja" name="nome_loja" type="text" placeholder="Nome da Loja" required>
-            <input id="senha_loja" name="senha_loja" type="password" placeholder="Senha" required>
-            <input id="cod_cnpj" name="cod_cnpj" type="text" placeholder="CNPJ" required>
+            <div class="row">
+                <input id="nome_loja" name="nome_loja" type="text" placeholder="Nome da Loja" required>
+            </div>
+            <div class="row">
+                <input id="senha_loja" name="senha_loja" type="password" placeholder="Senha" required>
+            </div>
+            <div class="row">
+                <input id="cod_cnpj" name="cod_cnpj" type="text" placeholder="CNPJ" required>
+            </div>
 
             <div class="row">
                 <input id="telefone_loja" name="telefone_loja" placeholder="Número de Telefone" type="text" required>
@@ -33,7 +47,9 @@
                 <input id="cidade" name="cidade" type="text" placeholder="Cidade" required>
             </div>
 
-            <input id="rua" name="rua" type="text" placeholder="Rua" required>
+            <div class="row">
+                <input id="rua" name="rua" type="text" placeholder="Rua" required>
+            </div>
 
             <div class="row">
                 <input id="categoria" name="categoria" type="text" placeholder="Ex: Hamburgueria, Pastelaria..." required>
@@ -41,10 +57,7 @@
             </div>
 
             <div class="checkbox-row">
-                <input type="checkbox" /> Aceito os termos de <a href="">política e privacidade</a>.
-            </div>
-            <div class="checkbox-row">
-                <input type="checkbox" /> Gostaria de receber relatórios.
+                <input type="checkbox" /> Aceito os termos de política e privacidade</a>.
             </div>
 
             <div class="row">
@@ -67,6 +80,7 @@
                     if (resposta.includes('success')) {
                         alert('Loja cadastrada com sucesso!');
                         $('#formLoja')[0].reset();
+                        window.location.href = "login_loja.html";
                     } else {
                         alert('Erro ao cadastrar: ' + resposta);
                     }

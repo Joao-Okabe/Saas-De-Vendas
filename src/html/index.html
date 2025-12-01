@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deméter</title>
     <link rel="icon" href="images/brightlogo.png" type="image/png">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script>
     function Entrar() {
         window.location.href = 'login_loja.html';
     }
     function Cadastrar(){
-        window.location.href = 'cadastrar_loja.html';   
+        window.location.href = 'cadastro_loja.html';
     }
     </script>
 </head>
 <body>
-    <!--Primeira parte do site-->
-    <div class="first-section" id="home">
-        <nav>
+    <nav id="navbar">
             <div class="logo ml-sm">
                 <img src="images/brightlogo.png" width="80" alt="">
                 <h2 class="agrandir-regular nav-title">Deméter</h2>
@@ -28,7 +26,7 @@
             <div class="menu agrandir-extralight">
                 <a class="agrandir-light" href="#home">Home</a>
                 <a class="agrandir-light" href="#about-us">Sobre nós</a>
-                <a class="agrandir-light" href="#">Políticas</a>
+                <a class="agrandir-light" href="#politics">Políticas</a>
                 <a class="agrandir-light" href="#">Avaliações</a>
                 <a class="agrandir-light" href="#">Contatos</a>
             </div>
@@ -42,7 +40,9 @@
                     <span>Realizar login</span>
                 </button>
             </div>
-        </nav>
+    </nav>
+    <!--Primeira parte do site-->
+    <div class="first-section" id="home">
         <div class="title-container">
             <h1 class="agrandir-bold title ml-m t-white">
                 Ofereça, venda e agrade!<br> De qualquer lugar.
@@ -60,7 +60,29 @@
     </div>
     <!--Segunda parte-->
     <div class="second-section" id="about-us">
-        
+        <div class="about-us-title">
+            <h1 class="agrandir-bold">Sobre Nós </h1>
+        </div>
+        <div class="aboutus-text t-justified">
+            <p class="t-white agrandir-light">Somos uma empresa líder no setor de prestação de serviços para pequenas e médias iniciativas, dedicando-nos a fornecer soluções de alta qualidade e serviços personalizados que atendem às necessidades específicas de nossos clientes. Com uma equipe de profissionais altamente qualificados e um compromisso inabalável com a sustentabilidade e a ética, buscamos não apenas superar as expectativas, mas também estabelecer novas referências de mercado. Acreditamos no poder da colaboração e da tecnologia para impulsionar o progresso e criar um futuro melhor para todos. Junte-se a nós nesta jornada de crescimento e sucesso compartilhado.</p>
+        </div>
+        <div class="our-mission-title">
+            <h1 class="agrandir-bold">  Nossa Missão</h1>
+        </div>
+        <div class="our-mission-text t-justified agrandir-light">
+            <p class="t-white agrandir-light">Nossa missão é impulsionar iniciativas no setor do comércio de alimentos, conectando estabelecimentos, produtores e consumidores por meio de soluções modernas, eficientes e acessíveis. Buscamos fortalecer negócios de todos os portes, oferecendo ferramentas que simplificam operações, ampliam alcance e promovem experiências mais práticas e saborosas no dia a dia. Trabalhamos para construir um ecossistema onde a tecnologia apoia o crescimento sustentável, a inovação e a qualidade no fornecimento de produtos alimentícios.</p>
+        </div>
+    </div>
+    <div class="third-section t-justified" id="politics">
+        <h1 class="t-white agrandir-bold">Políticas</h1>
+        <div class="politics-text-holder">
+            <p class="t-white  agrandir-light politics-text">
+                A nossa empresa fundamenta todas as suas ações em princípios de transparência, respeito e responsabilidade. Atuamos no setor de comércio alimentício com o compromisso de promover relações justas, seguras e confiáveis entre estabelecimentos, colaboradores, parceiros e consumidores. <br>
+                Valorizamos a integridade em cada etapa do nosso trabalho, garantindo que todas as decisões sejam tomadas de forma honesta, imparcial e alinhada às normas legais e regulatórias. Não toleramos práticas que possam comprometer a qualidade dos serviços, a segurança dos alimentos ou a confiança depositada em nossa plataforma. <br>
+                Tratamos todos com dignidade e respeito, promovendo um ambiente inclusivo e livre de discriminação. Incentivamos a comunicação aberta e a denúncia de comportamentos inadequados, assegurando que toda manifestação seja acolhida com seriedade e confidencialidade. <br>
+                Nosso compromisso ético se estende à proteção dos dados, ao uso responsável da tecnologia e à promoção de relações sustentáveis em toda a cadeia do comércio. Trabalhamos diariamente para garantir que nossos serviços reflitam nossos valores e contribuam para a construção de um setor mais justo, transparente e confiável para todos.
+            </p>
+        </div>
     </div>
     <!--Quarta parte-->
     <div class="fourth-section">
@@ -113,7 +135,6 @@
                             Daniel Moreira, Rei dos Judeus 2025.
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -150,9 +171,18 @@
         <span class="carousel-control-next-icon"></span>
     </button>
     </div>
-</div>
+    </div>
+    <script>
+    const nav = document.getElementById("navbar");
 
-    <footer></footer>
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            nav.classList.add("scrolled");
+        } else {
+            nav.classList.remove("scrolled");
+        }
+    });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

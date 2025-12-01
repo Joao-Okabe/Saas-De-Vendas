@@ -1,146 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 65px;
+}
+
+h2{
+    font-size: 60px;
+}
+
+h3{
+    font-size: 40px;
+}
 
 .container{
-    width: 80vw;
-    height: 80vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;  /* centraliza horizontal e vertical */
+    width: 100vw;
+    height: 100vh;
+    background-color: #da8800;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    overflow: hidden;
 }
 
 .left {
-    width: 50%;
     height: 100%;
-    padding: 60px;
-    background: #f7b733;
+    width: 40%;
+    text-align: center;
+    background: #0e0704;
     box-sizing: border-box;
     position: relative;
     color: white;
-    border-top-left-radius: 30px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
-.left h2, 
-.left h3 {
-    z-index: 2; /* manter o texto por cima */
+
+.logo-holder{
+    margin-top: 10%;
+    width: 40%;
+    height: 100%;
+}
+
+.logo-photo{
+    width: 100%;
+}
+
+
+.slogan-contato{
+    margin-bottom: 150px;
+}
+
+
+.right {
+    width: 60%;
+    height: 100%;
+    padding: 60px;
+    color: white;
     position: relative;
 }
 
-.plate-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: right center;
-    clip-path: inset(0 25% 0 0);
-    display: block;
-    pointer-events: none;
+.form-title{
+    margin-top: 5%;
 }
 
-    .right {
-        width: 50%;
-        height: 100%;
-        background: #0b8f2d;
-        padding: 60px;
-        box-sizing: border-box;
-        color: white;
-        position: relative;
-        border-bottom-right-radius: 30px;
-    }
+form {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-    .left h1 {
-        font-size: 50px;
-        margin: 0;
-        font-weight: 700;
-    }
+input, select {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    width: 100%;
+}
 
-    .left p {
-        font-size: 24px;
-        margin-top: 5px;
-    }
+.row {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
 
-    .left img {
-        width: 80%;
-        bottom: 0;
-        position: relative;
-    }
+.row input{
+    flex: 1;
+}
 
-    .column {
-        width: 80px;
-        background: url('COLUMN_PLACEHOLDER') no-repeat center/cover;
-    }
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
 
-    h2 {
-        font-size: 40px;
-        margin: 0;
-    }
+.checkbox-row input {
+    width: auto;
+    margin-right: 10px;
+}
 
-    h3 {
-        font-size: 26px;
-        margin-top: 5px;
-        font-weight: 400;
-    }
+.login {
+    margin-top: 20px;
+    font-size: 16px;
+}
 
-    form {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
+.login a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
-    input, select {
-        padding: 12px;
-        border-radius: 8px;
-        border: none;
-        font-size: 18px;
-        width: 100%;
-    }
-
-    .row {
-        display: flex;
-        gap: 15px;
-    }
-
-    .checkbox-row {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-    }
-
-    .checkbox-row input {
-        width: auto;
-        margin-right: 10px;
-    }
-
-    .login {
-        margin-top: 20px;
-        font-size: 16px;
-    }
-
-    .login a {
-        color: #ffffff;
-        font-weight: bold;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
-    button {
-        padding: 15px;
-        border-radius: 12px;
-        font-size: 22px;
-        background: white;
-        color: #0b8f2d;
-        border: none;
-        cursor: pointer;
-        width: 200px;
-        margin-left: auto;
-    }
+button {
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 22px;
+    background: white;
+    color: #0b8f2d;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    margin-left: auto;
+}
