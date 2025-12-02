@@ -28,6 +28,7 @@ h3{
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    font-family: "Agrandir", sans-serif;;
 }
 
 .left {
@@ -123,11 +124,11 @@ input, select {
 
 button {
     padding: 15px;
+    border: 1px solid white;
     border-radius: 12px;
     font-size: 22px;
-    background: white;
-    color: #0b8f2d;
-    border: none;
+    background: transparent;
+    color: white;
     cursor: pointer;
     width: 200px;
     margin-left: auto;

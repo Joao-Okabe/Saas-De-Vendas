@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="../css/cadastro-loja.css">
 </head>
 <body>
-
 <div class="container">
     <div class="left">
         <div class="logo-holder">
-            <h1 class="agrandir-medium">Deméter</h1>
+            <h1 class="agrandir-bold">Deméter</h1>
             <img src="../images/brightlogo.png" class="logo-photo"/>
         </div>
         <div class="slogan-contato t-justified">
@@ -24,7 +23,7 @@
     <div class="right">
         <div class="form-title">
             <h1 class="agrandir-medium">Cadastre-se</h1>
-            <h3>como loja</h3>
+            <h3 class="agrandir-medium">como loja</h3>
         </div>
         <form id="formLoja" method="POST">
             <div class="row">
@@ -34,7 +33,7 @@
                 <input id="senha_loja" name="senha_loja" type="password" placeholder="Senha" required>
             </div>
             <div class="row">
-                <input id="cod_cnpj" name="cod_cnpj" type="text" placeholder="CNPJ" required>
+                <input id="cod_cnpj" name="cod_cnpj" type="text" placeholder="CNPJ (Apenas números)" required>
             </div>
 
             <div class="row">
@@ -57,30 +56,29 @@
             </div>
 
             <div class="checkbox-row">
-                <input type="checkbox" /> Aceito os termos de política e privacidade</a>.
+                <input type="checkbox" required/> Aceito os termos de política e privacidade</a>.
             </div>
 
             <div class="row">
                 <div class="login">Já possui cadastro? <a href="/login_loja.html">Clique aqui para realizar login!</a></div>
-                <button type="submit" class="salvar">ENVIAR</button>
+                <button type="submit" class="salvar agrandir-regular">Registrar</button>
             </div>
         </form>
     </div>
-</div>
-
+</div>ca
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $('#formLoja').submit(function(e) {
             e.preventDefault();
             $.ajax({
-                url: 'insere_loja.php',
+                url: '../php/insere_loja.php',
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function(resposta) {
                     if (resposta.includes('success')) {
                         alert('Loja cadastrada com sucesso!');
                         $('#formLoja')[0].reset();
-                        window.location.href = "login_loja.html";
+                        window.location.href = 'login_loja.html';
                     } else {
                         alert('Erro ao cadastrar: ' + resposta);
                     }
