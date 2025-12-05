@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
     <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/cadastro-loja.css">
+    <link rel="stylesheet" href="../css/cadastroLogin-loja.css">
 </head>
 <body>
 <div class="container">
@@ -60,12 +60,17 @@
             </div>
 
             <div class="row">
-                <div class="login">Já possui cadastro? <a href="/login_loja.html">Clique aqui para realizar login!</a></div>
-                <button type="submit" class="salvar agrandir-regular">Registrar</button>
+                <div class="login">Já possui cadastro? <a href="../html/login_loja.html">Clique aqui para realizar login!</a></div>
+                <div class="btn-group">
+                    <button type="submit" class="btn-premium">
+                        <span>Cadastrar</span>
+                        <span>Cadastrar</span>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
-</div>ca
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $('#formLoja').submit(function(e) {
@@ -78,7 +83,7 @@
                     if (resposta.includes('success')) {
                         alert('Loja cadastrada com sucesso!');
                         $('#formLoja')[0].reset();
-                        window.location.href = 'login_loja.html';
+                        window.location.href = '../html/login_loja.hmtl';
                     } else {
                         alert('Erro ao cadastrar: ' + resposta);
                     }

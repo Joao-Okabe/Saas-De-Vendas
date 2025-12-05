@@ -2,14 +2,14 @@
  
 @font-face {
     font-family: 'Agrandir';
-    src: url('fonts/Agrandir-Font-Family/Agrandir-Regular.otf') format('truetype');
+    src: url('../fonts/Agrandir-Font-Family/Agrandir-Regular.otf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Agrandir';
-    src: url('fonts/Agrandir-Font-Family/Agrandir-TextBold.otf') format('truetype');
+    src: url('../fonts/Agrandir-Font-Family/Agrandir-TextBold.otf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
