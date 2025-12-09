@@ -14,6 +14,10 @@
     font-style: normal;
 }
 
+*{
+  font-family: "Agrandir", sans-serif;;
+}
+
  .agrandir-thin {
   font-family: "Agrandir", sans-serif;
   font-weight: 100;

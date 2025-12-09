@@ -76,14 +76,14 @@
         $('#formLoja').submit(function(e) {
             e.preventDefault();
             $.ajax({
-                url: '../php/insere_loja.php',
+                url: 'insere_loja.php',
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function(resposta) {
                     if (resposta.includes('success')) {
                         alert('Loja cadastrada com sucesso!');
                         $('#formLoja')[0].reset();
-                        window.location.href = '../html/login_loja.hmtl';
+                        window.location.href = 'login_loja.html';
                     } else {
                         alert('Erro ao cadastrar: ' + resposta);
                     }

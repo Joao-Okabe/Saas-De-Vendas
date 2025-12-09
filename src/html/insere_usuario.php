@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 include 'conecta.php';
 
 if ($conn->connect_error) {
-    die("❌ Falha na conexão: " . $conn->connect_error);
+    die("Falha na conexão: " . $conn->connect_error);
 }
 
 $cpf = $_POST['cpf']  ;
@@ -25,7 +25,7 @@ $stmt = $conn->prepare("INSERT INTO USUARIO (cd_cpf, nm_usuario, ds_email, ds_se
                         VALUES (?, ?, ?, ?, ?, ?)");
 
 if (!$stmt) {
-    die("❌ Erro ao preparar SQL: " . $conn->error);
+    die("Erro ao preparar SQL: " . $conn->error);
 }
 
 $stmt->bind_param("isssss", $cpf, $usuario, $email, $senha, $telefone, $nascimento);

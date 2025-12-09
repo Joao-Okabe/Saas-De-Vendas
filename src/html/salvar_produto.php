@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 require "conecta.php";
 
 if (!isset($conn) || !($conn instanceof mysqli)) {
@@ -11,7 +9,6 @@ if (!isset($conn) || !($conn instanceof mysqli)) {
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Requisição inválida.");
 }
-
 
 $nome      = isset($_POST['nome_produto']) ? trim($_POST['nome_produto'])
            : (isset($_POST['nm_produto']) ? trim($_POST['nm_produto']) : '');
@@ -69,7 +66,6 @@ if ($fileField && isset($_FILES[$fileField]) && $_FILES[$fileField]['error'] !==
     $fotoBD = 'uploads/' . $novoNome; 
 }
 
-
 $nome_e = $conn->real_escape_string($nome);
 $desc_e = $conn->real_escape_string($descricao);
 $preco_e = $conn->real_escape_string($preco);
@@ -87,10 +83,10 @@ $cd_produto = $conn->insert_id;
 $cnpj_e = $conn->real_escape_string($cnpj);
 $sql2 = "INSERT INTO LOJA_PRODUTO (cd_cnpj, cd_produto) VALUES ('$cnpj_e', $cd_produto)";
 if (!$conn->query($sql2)) {
-    
     $conn->query("DELETE FROM PRODUTO WHERE cd_produto = $cd_produto");
     die("Erro ao vincular produto à loja: " . $conn->error);
 }
 
-echo "OK";
+
+
 ?>

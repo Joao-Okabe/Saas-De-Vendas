@@ -20,7 +20,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./src/:/var/www/html
+      - ./src/html:/var/www/html
       - ./src/uploads/:/var/www/html/uploads   # <- aqui vai a pasta uploads
     depends_on:
       - db

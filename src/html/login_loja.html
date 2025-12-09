@@ -54,13 +54,13 @@
         e.preventDefault();
 
         $.ajax({
-          url: "../php/login_loja.php",
+          url: "login_loja.php",
           type: "POST",
           data: $(this).serialize(),
           success: function (resposta) {
             resposta = resposta.trim();
             if (resposta === "OK") {
-              window.location.href = "../html/main.html";
+              window.location.href = "../html/main_loja.php";
             } else {
               alert("resposta");
             }

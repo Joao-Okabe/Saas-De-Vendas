@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/cadastroLogin-loja.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="logo-holder">
+                <h1 class="agrandir-bold">Deméter</h1>
+                <img src="../images/brightlogo.png" class="logo-photo"/>
+            </div>
+            <div class="slogan-contato t-justified">
+                <h3 class="agrandir-bold">Veja, compre e aprecie!<br>De qualquer lugar.</h3>
+                <a class="a-white" href="">Está enfrentando problemas? Contate nosso suporte!</a>
+            </div>
+        </div>
+        <div class="right">
+            <div class="form-title">
+                <h1 class="agrandir-medium">Realize login</h1>
+                <h3 class="agrandir-medium">como usuário</h3>
+            </div>
+            <form  id="Formulario" method="POST" action="login_usuario.php">
+                <div class="row">
+                    <input name="email" type="email" placeholder="Email" required>
+                </div>
+                <div class="row">
+                    <input name="senha" type="password" placeholder="Senha" required>
+                </div>
+                <div class="checkbox-row">
+                    <input type="checkbox" required/> Aceito os termos de política e privacidade</a>.
+                </div>
+                <div class="row">
+                    <div class="login">Não possui cadastro? <a href="../html/cadastro_usuario.html">Clique aqui para realizar cadastro!</a></div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn-premium">
+                            <span>Cadastrar</span>
+                            <span>Cadastrar</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -15,37 +15,39 @@ if (!isset($_POST['cd_produto'])) {
 $cd = (int)$_POST['cd_produto'];
 $cnpj = $conn->real_escape_string($_SESSION['cnpj_loja']);
 
-
+// Pega foto do produto
 $sql = "SELECT p.ds_foto FROM PRODUTO p
         JOIN LOJA_PRODUTO lp ON lp.cd_produto = p.cd_produto
         WHERE p.cd_produto = $cd AND lp.cd_cnpj = '$cnpj' LIMIT 1";
 $res = $conn->query($sql);
+
 if (!$res || $res->num_rows == 0) {
     echo "Produto não encontrado ou não pertence à sua loja.";
     exit;
 }
+
 $row = $res->fetch_assoc();
 $foto = $row['ds_foto'];
 
-
+// Remove vínculo com a loja
 $sql1 = "DELETE FROM LOJA_PRODUTO WHERE cd_produto = $cd AND cd_cnpj = '$cnpj'";
 $conn->query($sql1);
 
-
+// Verifica se o produto ainda pertence a outra loja
 $sqlCheck = "SELECT COUNT(*) as cnt FROM LOJA_PRODUTO WHERE cd_produto = $cd";
 $r2 = $conn->query($sqlCheck);
-$cnt = 0;
-if ($r2 && $r2->num_rows > 0) {
-    $cnt = $r2->fetch_assoc()['cnt'];
-}
+$cnt = ($r2 && $r2->num_rows > 0) ? $r2->fetch_assoc()['cnt'] : 0;
 
+// Se não pertence a mais nenhuma loja, apaga ele
 if ($cnt == 0) {
 
     $conn->query("DELETE FROM PRODUTO WHERE cd_produto = $cd");
     
     if ($foto) {
         $path = __DIR__ . '/' . $foto;
-        if (file_exists($path)) @unlink($path);
+        if (file_exists($path)) {
+            @unlink($path);
+        }
     }
 }
 

@@ -4,28 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro De Usuario</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/cadastroLogin-loja.css">
 </head>
 <body>
     <div class="container">
-        <form id="Formulario" method="post" action="insere.php">
-            <label>CPF:</label><br>
-            <input name="cpf" required><br>
-            <label>Usuário:</label><br>
-            <input name="usuario" required><br>
-            <label>Email:</label><br>
-            <input name="email" type="email" required><br>
-            <label>Senha:</label><br>
-            <input name="senha" type="password" required><br>
-            <label>Telefone:</label><br>
-            <input name="telefone"><br>
-            <label>Nascimento:</label><br>
-            <input name="nascimento" type="date"><br><br>
-            <button type="submit">Enviar</button>
-        </form>
+        <div class="left">
+            <div class="logo-holder">
+                <h1 class="agrandir-bold">Deméter</h1>
+                <img src="../images/brightlogo.png" class="logo-photo"/>
+            </div>
+            <div class="slogan-contato t-justified">
+                <h3 class="agrandir-bold">Veja, compre e aprecie!<br>De qualquer lugar.</h3>
+                <a class="a-white" href="">Está enfrentando problemas? Contate nosso suporte!</a>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="form-title">
+                <h1 class="agrandir-medium">Cadastre-se</h1>
+                <h3 class="agrandir-medium">como usuário</h3>
+            </div>
+            <form  id="Formulario" method="post" action="insere.php">
+                <div class="row">
+                    <input name="cpf" placeholder="CPF (Apenas números)" required>
+                </div>
+                <div class="row">
+                    <input name="usuario" placeholder="Nome de Usuário">
+                </div>
+                <div class="row">
+                    <input name="email" type="email" placeholder="Email" required>
+                </div>
+                <div class="row">
+                    <input name="senha" type="senha" placeholder="Senha" required>
+                </div>
+
+                <div class="row">
+                    <input name="telefone" type="number" placeholder="Telefone">
+                </div>
+
+                <div class="row">
+                    <input name="nascimento" type="date">
+                </div>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" required/> Aceito os termos de política e privacidade</a>.
+                </div>
+
+                <div class="row">
+                    <div class="login">Já possui cadastro? <a href="../html/login_usuario.html">Clique aqui para realizar login!</a></div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn-premium">
+                            <span>Cadastrar</span>
+                            <span>Cadastrar</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#Formulario").on("submit", function (e) {
@@ -37,7 +77,8 @@
                     data: $(this).serialize(), // envia todos os campos do form
                     success: function (response) {
                         console.log("Resposta do PHP:", response);
-                        alert(response); // mostra a resposta do PHP
+                        alert(response);
+                        window.location.href = "login_usuario.html"
                     },
                     error: function (xhr, status, error) {
                         alert("Erro AJAX: " + xhr.status + " - " + error);
