@@ -20,5 +20,5 @@ if (isset($_SESSION['carrinho'][$id])) {
     $_SESSION['carrinho'][$id] = 1;
 }
 
-header("Location: carrinho.php");
+header("Location: main_usuario.php");
 exit;

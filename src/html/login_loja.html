@@ -54,7 +54,7 @@
         e.preventDefault();
 
         $.ajax({
-          url: "login_loja.php",
+          url: "login_loja_service.php",
           type: "POST",
           data: $(this).serialize(),
           success: function (resposta) {
@@ -62,7 +62,7 @@
             if (resposta === "OK") {
               window.location.href = "../html/main_loja.php";
             } else {
-              alert("resposta");
+              console.log()
             }
           },
           error: function () {

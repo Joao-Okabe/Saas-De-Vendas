@@ -6,6 +6,7 @@
     }
     require __DIR__ . "/conecta.php";
     require __DIR__ . "/listar_produtos.php";
+    $nomeLoja = $_SESSION["nome_loja"] ?? "Loja";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -22,10 +23,6 @@
     <nav class="navbar">
         <h1 class="text-white offset-2">Deméter</h1>
         <div class="navbar-btn-group">
-            <button class="btn-premium" onclick="">
-                    <span class="agrandir-light">Editar Perfil</span>
-                    <span>Editar Perfil</span>
-            </button>
             <button class="btn-premium" onclick="Sair()">
                     <span class="agrandir-light">Sair</span>
                     <span>Sair</span>
@@ -34,17 +31,17 @@
     </nav>
     <!-- Lista -->
     <div class="row offset-2 mt-5">
-        <h1>Meus Produtos</h1>
+        <h1><?php echo $nomeLoja; ?> - Meus Produtos</h1>
     </div>
     <div class="row offset-2 col-8">
-        <table class="table table-striped table-hover shadow-sm mt-4">
+        <table class="table table-striped table-hover shadow-sm">
             <thead class="table-primary"> 
                 <tr>
                     <th>Identificador</th>
                     <th>Foto</th>
                     <th>Nome</th>
-                    <th>Descrição</th>
                     <th>Preço</th>
+                    <th>Descrição</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -68,27 +65,6 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adicionarProdutoModal">
                 Adicionar produto!
             </button>
-        </div>
-        </div>
-        <div class="card col-md-3 col-sm-10" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Adicionar Cupom</h5>
-            <p class="card-text">Adicione seu cumpom</p> 
-            <!-- Button trigger adicionarProdutoModal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adicionarCupomModal">
-                Adicionar cumpom!
-            </button>
-        </div>
-        </div>
-        <div class="card col-md-3 col-sm-10" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Adicionar Cardápio</h5>
-            <p class="card-text">Adicione seu Cardápio Digital!</p> 
-            <!-- Button trigger adicionarProdutoModal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#adicionarCardápio">
-                Adicionar cardápio!
-            </button>
-        </div>
         </div>
     </div>
     <!-- Modal Adicionar Produto -->
@@ -131,7 +107,7 @@
 <script>
 
 function Sair(){
-    window.location.href =  "logout.php";
+    window.location.href =  "logout_loja.php";
 }
 
 $('#formProduto').on('submit', function(e) {

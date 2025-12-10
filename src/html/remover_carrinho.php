@@ -6,5 +6,5 @@ if (isset($_GET['id'])) {
     unset($_SESSION['carrinho'][$id]);
 }
 
-header("Location: carrinho.php");
+header("Location: main_usuario.php");
 exit;
