@@ -24,8 +24,10 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
         $usuario = $query->fetch_assoc();
 
-        $_SESSION['nome']  = $usuario['nm_usuario'];
-        $_SESSION['email'] = $usuario['ds_email'];
+        $_SESSION['cpf']      = $usuario['cd_cpf'];
+        $_SESSION['nome']     = $usuario['nm_usuario'];
+        $_SESSION['email']    = $usuario['ds_email'];
+        $_SESSION['telefone'] = $usuario['ds_telefone'];
 
         header("Location: main_usuario.php");
         exit;

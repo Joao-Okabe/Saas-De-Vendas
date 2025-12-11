@@ -3,5 +3,5 @@ if (!isset($_SESSION)) {
     session_start();
 }
 session_destroy();
-header("Location: Index.php");
+header("Location: login_usuario.html");
 ?>

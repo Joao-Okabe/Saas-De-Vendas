@@ -1,6 +1,12 @@
 <?php
-session_start();
 require "conecta.php";
+session_start();
+
+if (!isset($_SESSION['cpf'])) {
+    header("Location: login_usuario.php");
+    exit;
+}
+
 
 $sql = "SELECT p.cd_produto, p.nm_produto, p.ds_produto, p.vl_produto, p.ds_foto
         FROM PRODUTO p
@@ -39,7 +45,7 @@ function ListarProdutoCliente($res){
     <title>Deméter - Lista de Produtos</title>
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/main-loja.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->
@@ -52,6 +58,7 @@ function ListarProdutoCliente($res){
             </button>
         </div>
     </nav>
+
     <!-- Lista -->
     <div class="row offset-2 mt-5">
         <h1 class="agrandir-bold">Lista de Produtos</h1>
@@ -69,12 +76,12 @@ function ListarProdutoCliente($res){
                 </tr>
             </thead>
             <tbody>
-                <?php
-                listarProdutoCliente($res);
-                ?>
+                <?php listarProdutoCliente($res); ?>
             </tbody>
         </table>
     </div>
+
+    <!-- Carrinho -->
     <div class="row offset-2 mt-5">
         <h1 class="agrandir-bold">Carrinho</h1>
     </div>
@@ -82,17 +89,17 @@ function ListarProdutoCliente($res){
     <?php
         if (!isset($_SESSION['carrinho']) || count($_SESSION['carrinho']) == 0) {
             echo "<p>Seu carrinho está vazio.</p>";
-            echo "<a href='telaInicial.php'>Voltar para produtos</a>";
             exit;
         }
 
+        echo '<form method="POST" action="processar_pagamento.php">';
         echo '<table class="table table-striped table-hover shadow-sm">
                 <thead class="table-primary"> 
                     <tr>
                         <th>Nome</th>
                         <th>Quantidade</th>
                         <th>Preço</th>
-                        <th>Descrição</th>
+                        <th>Total</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -117,20 +124,61 @@ function ListarProdutoCliente($res){
             echo "<td>R$ " . number_format($preco, 2, ',', '.') . "</td>";
             echo "<td>R$ " . number_format($total, 2, ',', '.') . "</td>";
             echo "<td><a href='remover_carrinho.php?id=$id'>Remover</a></td>";
-            echo "</tr></tbody>";
+            echo "</tr>";
         }
-        echo "</table>";
+
+        echo "</tbody></table>";
         echo "<h2>Total Geral: R$ " . number_format($total_geral, 2, ',', '.') . "</h2>";
-        echo "<button onclick=\"alert('Compra finalizada!')\">Finalizar Compra</button>";
+
+        echo '<h3 class="mt-4">Selecione o Método de Pagamento</h3>';
+        echo '
+        <div class="card p-3 mb-4">
+            <label><input type="radio" name="metodo" value="cartao" required> Cartão de Crédito</label><br>
+            <label><input type="radio" name="metodo" value="pix" required> PIX</label>
+        </div>
+
+        <!-- CAMPOS DO CARTÃO -->
+        <div id="pag_cartao" style="display:none;" class="card p-3 mb-4">
+            <h5>Pagamento com Cartão</h5>
+            <label>Número do cartão:</label>
+            <input type="text" class="form-control mb-2" name="numero_cartao">
+
+            <label>Validade:</label>
+            <input type="month" class="form-control mb-2" name="validade">
+
+            <label>CVV:</label>
+            <input type="text" class="form-control mb-2" name="cvv">
+
+            <label>Nome impresso:</label>
+            <input type="text" class="form-control mb-2" name="nome_cartao">
+        </div>
+
+        <!-- PIX -->
+        <div id="pag_pix" style="display:none;" class="card p-3 mb-4">
+            <h5>Pagamento via PIX</h5>
+            <p>Use a chave abaixo:</p>
+            <input class="form-control" value="11.222.333/0001-99 (Chave CNPJ)" readonly>
+            <label class="mt-2"><input type="checkbox" name="confirmar_pix"> Confirmo que realizei o pagamento</label>
+        </div>
+
+        <button class="btn btn-success mt-3" type="submit">Finalizar Compra</button>
+        </form>
+
+        <script>
+        document.querySelectorAll("input[name=metodo]").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("pag_cartao").style.display = this.value === "cartao" ? "block" : "none";
+                document.getElementById("pag_pix").style.display = this.value === "pix" ? "block" : "none";
+            });
+        });
+        </script>
+        ';
     ?>
     </div>
-    
-    <div class="mt-5"></div>
-    
-    <script src="jquery-3.7.1.min.js"></script>
+
     <script>
         function Sair(){
-            window.location.href =  "logout_usuario.php";
+            window.location.href = "logout_usuario.php";
         }
     </script>
 </body>
