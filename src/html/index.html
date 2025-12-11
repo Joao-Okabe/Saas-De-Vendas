@@ -15,6 +15,12 @@
     function Cadastrar(){
         window.location.href = 'cadastro_loja.html';
     }
+    function cadastrarComoCliente(){
+        window.location.href = 'cadastro_usuario.html';
+    }
+    function entrarComoCliente(){
+        window.location.href = 'login_usuario.html';
+    }
     </script>
 </head>
 <body>
@@ -85,93 +91,22 @@
         </div>
     </div>
     <!--Quarta parte-->
-    <div class="fourth-section">
-        <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-            <!-- ITEM 1 -->
-            <div class="carousel-item active">
-                <div class="container py-5">
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <img src="images/caroussel/image1.jpeg" class="img-fluid rounded">
-                        </div>
-                        <div class="col-md-8 text-white">
-                            <p style="font-size: 18px; line-height: 1.7;">
-                            “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla suscipit 
-                            feugiat interdum. Quisque consequat augue dictum libero blandit posuere. 
-                            Proin elementum ut mauris quis condimentum. Vivamus auctor, dolor iaculis 
-                            sollicitudin rhoncus, eros dolor consequat nibh, ac gravida est ipsum 
-                            facilisis tortor. Donec quis leo purus. Ut dignissim interdum justo ac 
-                            euismod. Donec placerat, magna ac rhoncus interdum, nibh sem mollis erat, 
-                            sed vulputate est diam id neque...”
-                            </p>
-
-                            <p class="text-end fw-bold" style="font-size: 18px;">
-                            Rafael Mandira, Rei do PHP 2025.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ITEM 2 -->
-            <div class="carousel-item">
-                <div class="container py-5">
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <img src="images/caroussel/image2.jpeg" class="img-fluid rounded">
-                        </div>
-                        <div class="col-md-8 text-white">
-                            <p style="font-size: 18px; line-height: 1.7;">
-                            “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla suscipit 
-                            feugiat interdum. Quisque consequat augue dictum libero blandit posuere. 
-                            Proin elementum ut mauris quis condimentum. Vivamus auctor, dolor iaculis 
-                            sollicitudin rhoncus, eros dolor consequat nibh, ac gravida est ipsum 
-                            facilisis tortor. Donec quis leo purus. Ut dignissim interdum justo ac 
-                            euismod. Donec placerat, magna ac rhoncus interdum, nibh sem mollis erat, 
-                            sed vulputate est diam id neque...”
-                            </p>
-
-                            <p class="text-end fw-bold" style="font-size: 18px;">
-                            Daniel Moreira, Rei dos Judeus 2025.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ITEM 3 -->
-            <div class="carousel-item">
-                <div class="container py-5">
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <img src="images/caroussel/image3.jpeg" class="img-fluid rounded">
-                        </div>
-                        <div class="col-md-8 text-white">
-                            <p style="font-size: 18px; line-height: 1.7;">
-                            “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla suscipit 
-                            feugiat interdum. Quisque consequat augue dictum libero blandit posuere. 
-                            Proin elementum ut mauris quis condimentum. Vivamus auctor, dolor iaculis 
-                            sollicitudin rhoncus, eros dolor consequat nibh, ac gravida est ipsum 
-                            facilisis tortor. Donec quis leo purus. Ut dignissim interdum justo ac 
-                            euismod. Donec placerat, magna ac rhoncus interdum, nibh sem mollis erat, 
-                            sed vulputate est diam id neque...”
-                            </p>
-                            <p class="text-end fw-bold" style="font-size: 18px;">
-                            Little Jhonn, Rei do ITA 2025.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <footer class="fourth-section">
+        <div class="cadastro-cliente">
+            <h1 class="text-white">Cadastro de Cliente</h1>
+            <button class="btn-premium" onclick="cadastrarComoCliente()" role="btn-cadastro">
+                <span class="agrandir-light">Realizar cadastro</span>
+                <span>Realizar cadastro</span>
+            </button>
         </div>
-    <!-- BOTÕES -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-    </div>
-    </div>
+        <div class="login-cliente">
+            <h1 class="text-white">Login de Cliente</h1>
+            <button class="btn-premium" onclick="entrarComoCliente()" role="btn-cadastro">
+                <span class="agrandir-light">Realizar login</span>
+                <span>Realizar login</span>
+            </button>
+        </div>
+    </footer>
     <script>
     const nav = document.getElementById("navbar");
 

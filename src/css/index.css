@@ -212,6 +212,24 @@ nav a:hover{
     font-size: 18px;
 }
 
+.fourth-section{
+    background-color: rgb(24, 19, 18);
+    height: 600px;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    padding-top: 5.5rem;
+}
+
+.cadastro-cliente, .login-cliente{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /*Margin top*/
 .mt-s{
     margin-top: 5%;
